@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Visualization</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .container {
+            margin: 0 auto;
+            width: 80%;
+        }
+        .array-input {
+            display: block;
+            width: 60%;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 1rem;
+        }
+        .submit-array {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .submit-array:hover {
+            background-color: #45a049;
+        }
+        .tree {
+            margin-top: 50px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .tree ul {
+            padding: 0;
+            position: relative;
+            transition: all 0.5s;
+        }
+        .tree li {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px 5px;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            border-top: 2px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+        .tree li::before {
+            left: -50%;
+            border-right: 2px solid #ccc;
+        }
+        .tree li::after {
+            right: -50%;
+            border-left: 2px solid #ccc;
+        }
+        .tree li:only-child::before, .tree li:only-child::after {
+            display: none;
+        }
+        .tree li:only-child {
+            padding-top: 0;
+        }
+        .tree li:first-child::before, .tree li:last-child::after {
+            border: 0;
+        }
+        .tree li div {
+            padding: 10px;
+            background-color: #0055ff;
+            color: white;
+            border-radius: 50%;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .tree li div.pivot {
+            background-color: #f39c12;
+            animation: pulse 0.5s infinite alternate;
+        }
+        .tree li div.swapped {
+            background-color: #2ecc71;
+            animation: pulse 0.5s infinite alternate;
+        }
+        @keyframes pulse {
+            to {
+                transform: scale(1.1);
+            }
+        }
+        .instructions {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .steps {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #333;
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Quick Sort Visualization</h1>
+    <input class="array-input" id="array-input" placeholder="Enter numbers separated by spaces..." />
+    <button class="submit-array" id="submit-array">Visualize Quick Sort</button>
+
+    <div class="tree" id="tree"></div>
+    <div class="instructions" id="instructions">
+        Step 1: Enter a series of numbers separated by spaces.<br>
+        Step 2: Click "Visualize Quick Sort" to see the sorting process.
+    </div>
+    <div class="steps" id="steps"></div>
+</div>
+
+<script>
+    const SECOND = 1000;
+    const sleep = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    let stepCounter = 0;
+
+    const updateSteps = (message) => {
+        stepCounter++;
+        const stepsDiv = document.getElementById('steps');
+        stepsDiv.innerHTML += `<p><strong>Step ${stepCounter}:</strong> ${message}</p>`;
+    }
+
+    const parseArrayInput = (inputStr) => {
+        const nonNumericRegex = /[^\d\s.]/;
+        if (nonNumericRegex.test(inputStr)) {
+            alert("Invalid input: Only numeric values are allowed. Alphabetic characters and special symbols are not allowed.");
+            return null;
+        }
+
+        const tokens = inputStr.trim().split(/\s+/);
+        const array = [];
+
+        for (let i = 0; i < tokens.length; i++) {
+            const value = tokens[i];
+
+            if (isNaN(value) || value.trim() === "") {
+                alert("Invalid input: Please enter only numeric values.");
+                return null;
+            }
+
+            array.push(parseFloat(value));
+        }
+
+        return array;
+    }
+
+    const createNode = (value, className = "") => {
+        const div = document.createElement('div');
+        div.textContent = value;
+        div.className = className;
+        return div;
+    }
+
+    const createTree = (array, pivotIndex = -1, swapIndices = []) => {
+        const treeDiv = document.getElementById('tree');
+        treeDiv.innerHTML = '';
+
+        const buildTreeHTML = (index) => {
+            if (index >= array.length) return '';
+
+            let className = "";
+            if (index === pivotIndex) {
+                className = "pivot";
+            } else if (swapIndices.includes(index)) {
+                className = "swapped";
+            }
+
+            return `
+                <li>
+                    <div class="${className}">${array[index]}</div>
+                </li>
+            `;
+        }
+
+        const treeHTML = `<ul>${array.map((_, i) => buildTreeHTML(i)).join('')}</ul>`;
+        treeDiv.innerHTML = treeHTML;
+    }
+
+    const partition = async (array, low, high) => {
+        let pivot = array[high];
+        createTree(array, high); // Visualize pivot
+        document.getElementById('instructions').innerHTML = `Pivot selected: ${pivot}`;
+        updateSteps(`Selected ${pivot} as pivot.`);
+        await sleep(SECOND);
+
+        let i = low - 1;
+        for (let j = low; j < high; j++) {
+            if (array[j] < pivot) {
+                i++;
+                [array[i], array[j]] = [array[j], array[i]]; // Swap
+                createTree(array, high, [i, j]);
+                document.getElementById('instructions').innerHTML = `Swapping ${array[i]} and ${array[j]}`;
+                updateSteps(`Swapped ${array[i]} and ${array[j]}.`);
+                await sleep(SECOND);
+            }
+        }
+        [array[i + 1], array[high]] = [array[high], array[i + 1]]; // Swap pivot
+        createTree(array, high, [i + 1, high]);
+        document.getElementById('instructions').innerHTML = `Swapping pivot ${array[i + 1]} with ${array[high]}`;
+        updateSteps(`Placed pivot ${array[i + 1]} at its correct position.`);
+        await sleep(SECOND);
+
+        return i + 1; // Return pivot index
+    }
+
+    const quickSort = async (array, low, high) => {
+        if (low < high) {
+            const pi = await partition(array, low, high);
+
+            // Recursively sort elements before and after partition
+            await quickSort(array, low, pi - 1);
+            await quickSort(array, pi + 1, high);
+        }
+    }
+
+    document.getElementById('submit-array').addEventListener('click', async () => {
+        const array = parseArrayInput(document.getElementById('array-input').value);
+        if (!array) {
+            return; // If invalid input, stop further processing
+        }
+
+        stepCounter = 0; // Reset step counter
+        document.getElementById('steps').innerHTML = ""; // Clear previous steps
+        updateSteps(`Initial array: [${array.join(", ")}]`);
+
+        createTree(array); // Visualize the initial array
+        await quickSort(array, 0, array.length - 1); // Start quick sort visualization
+
+        document.getElementById('instructions').innerHTML = "Quick sort complete!";
+        updateSteps(`Array sorted: [${array.join(", ")}]`);
+    });
+</script>
+
+</body>
+</html>

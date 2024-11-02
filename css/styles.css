@@ -1,0 +1,941 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 500px;
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+
+.array-bar {
+    width: 10px;
+    margin: 0 1px;
+    background-color: teal;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 500px;
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+
+.array-bar {
+    width: 20px;
+    margin: 0 1px;
+    background-color: teal;
+}
+
+.grid-row {
+    display: flex;
+}
+
+.grid-cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+}
+
+.board-row {
+    display: flex;
+}
+
+.board-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+}
+.grid-row {
+    display: flex;
+}
+
+.grid-cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+#array-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 20px;
+    height: 300px;
+}
+
+.array-bar {
+    width: 30px;
+    margin: 0 2px;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease, height 0.3s ease;
+}
+
+.array-bar span {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    font-size: 12px;
+}
+
+.array-bar.sorted {
+    background-color: #28a745;
+}
+
+.array-bar.comparing {
+    background-color: #dc3545;
+}
+
+#algorithm-description {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="range"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+#array-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 20px;
+    height: 300px;
+}
+
+.array-bar {
+    width: 30px;
+    margin: 0 2px;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease, height 0.3s ease;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.array-bar span {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    font-size: 12px;
+}
+
+.array-bar.sorted {
+    background-color: #28a745;
+}
+
+.array-bar.comparing {
+    background-color: #dc3545;
+}
+
+#algorithm-description, #step-description {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#solution-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+#solution-container h2 {
+    margin: 0 0 10px 0;
+}
+
+#solution {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#solution div {
+    margin: 2px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 3px;
+}
+/* Center the grid container */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    gap: 1px;
+    margin: 20px;
+}
+
+/* Styling for grid cells */
+.grid-cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.wall {
+    background-color: black;
+}
+
+.start {
+    background-color: green;
+}
+
+.end {
+    background-color: red;
+}
+
+.visited {
+    background-color: lightblue;
+    transition: background-color 0.2s;
+}
+
+.path {
+    background-color: yellow;
+    transition: background-color 0.2s;
+}
+
+.shortest-path {
+    background-color: orange;
+    transition: background-color 0.2s;
+}
+
+/* Styling for buttons */
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Step counter */
+#step-counter {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #e7e4e4;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+#array-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 20px auto;
+    width: 90%;
+    height: 300px;
+    background-color: white;
+    border: 2px solid #ddd;
+    padding: 40px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.array-bar {
+    width: 15px;
+    margin: 2px;
+    background-color: teal;
+}
+
+#step-counter {
+    margin: 20px auto;
+    font-size: 22px;
+    color: #333;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #004d4d;
+}
+
+button:active {
+    background-color: #003333;
+}
+/* Style for the navigation menu links */
+ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    background-color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+ul li a:hover {
+    background-color: #ff6347; /* Change color on hover */
+    transform: scale(1.1);     /* Slightly enlarge the button on hover */
+}
+/* General reset for clean styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Container for centering the content */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+/* Title styling */
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Menu styling */
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin: 15px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu a:hover {
+    background-color: #fff;
+    color: #2c5364;
+    transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .menu a {
+        font-size: 1rem;
+    }
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #4b9cda;
+    display: block; /* Change from flex to block for natural flow of page */
+    padding: 20px;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Container Wrapper for Centralizing Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading Style */
+h1 {
+    font-size: 3rem;
+    color: #e1e1e1;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+}
+
+/* Controls Container */
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Button Styling */
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Input Styling */
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+input[type="range"] {
+    width: 200px;
+    margin: 0 10px;
+}
+
+/* Array Bar Styling */
+#array-container {
+    display: flex;
+    align-items: flex-end;
+    height: 300px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    background-color: #eaeaea;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Allow horizontal scrolling for large arrays */
+}
+
+.bar {
+    width: 20px;
+    margin: 0 3px;
+    background-color: #9b59b6; /* Changed to a more modern color */
+    border-radius: 5px;
+    transition: height 0.2s ease, background-color 0.2s ease;
+}
+
+/* Solution Container */
+#solution-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#solution {
+    font-size: 1.2rem;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Table Styling */
+#steps-table {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#steps-table th,
+#steps-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+#steps-table th {
+    background-color: #3498db;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+#steps-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#steps-table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+#steps-table td {
+    font-size: 0.9rem;
+    color: #151616;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Bar Styling */
+.bar {
+    width: 20px;
+    margin: 0 3px;
+    background-color: #9b59b6;
+    border-radius: 5px;
+    transition: height 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #000000;
+    font-weight: bold;
+}
+/* General body styling */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading style */
+
+
+/* Control buttons styling */
+.controls {
+    margin-bottom: 20px;
+}
+
+
+/* Array container styling */
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 300px;
+    margin: 20px auto;
+    max-width: 80%;
+    border: 1px solid #ffffff;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* Heap Tree Styling */
+#heap-tree-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heap-node {
+    border: 1px solid #3d405b;
+    padding: 10px;
+    margin: 5px;
+    background-color: #81b29a;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.arrow {
+    margin: 5px;
+    font-size: 1.2rem;
+}
+
+/* Step and Time Complexity Boxes */
+#step-box, #time-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #e047ff;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+h3 {
+    color: #3d405b;
+}
+
+/* Step counter styling */
+#step-counter {
+    font-size: 1.5rem;
+    color: #3d405b;
+    font-weight: bold;
+}
+
+/* Button hover effects */
+button:hover {
+    transform: scale(1.05);
+}
+/* Heap Tree Styling */
+#heap-tree-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heap-node {
+    border: 1px solid #3d405b;
+    padding: 10px;
+    margin: 5px;
+    background-color: #81b29a;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.arrow {
+    margin: 5px;
+    font-size: 1.2rem;
+}
+
+/* Step and Time Complexity Boxes */
+#step-box, #time-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #81b29a;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+h3 {
+    color: #3d405b;
+}
+
+/* Step counter styling */
+#step-counter {
+    font-size: 1.5rem;
+    color: #3d405b;
+    font-weight: bold;
+}
+
+/* Button hover effects */
+button:hover {
+    transform: scale(1.05);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ee0b0b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #61abff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.board {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.board-row {
+    display: flex;
+}
+
+.board-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+}
+
+.board-cell.black {
+    background-color: black;
+}
+
+.board-cell.queen {
+    background-color: red; /* Color for the queen */
+    position: relative;
+}
+
+.board-cell.queen:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#steps-container {
+    margin-top: 20px;
+    text-align: left;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.step {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #e9ecef;
+    border-radius: 3px;
+}
+.array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 300px;
+    margin: 20px auto;
+    max-width: 80%;
+    border: 1px solid #ffffff;
+    background-color: #fff;
+    padding: 10px;
+}

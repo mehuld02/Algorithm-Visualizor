@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Visualizer</title>
+    <link rel="stylesheet" href="css/bst.css">
+    <link rel="stylesheet" href="css/bineary.css">
+</head>
+<body>
+    <h1>Visualization of Binary Search</h1>
+    <div class="controls">
+        <input type="text" id="array-input" placeholder="Enter numbers separated by commas">
+        <button onclick="setArray()">Set Array</button>
+        <button onclick="generateRandomArray()">Generate Random Array</button>
+    </div>
+    <div id="array-container"></div>
+    <div class="controls">
+        <input type="number" id="search-value" placeholder="Enter number to search">
+        <button onclick="startSearch()">Start Search</button>
+    </div>
+    <div id="result"></div>
+    <script src="js/bineary.js"></script>
+</body>
+</html>

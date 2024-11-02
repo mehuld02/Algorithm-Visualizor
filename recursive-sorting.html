@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Sorting</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Recursive Sorting</h1>
+        <ul class="menu">
+            <li><a href="quicksort.html">Quick Sorting Algorithms</a></li>
+            <li><a href="heapsort.html">Heap Sorting Algorithms</a></li>
+    
+            <li><a href="mergesort.html">Merge Sorting Algorithms</a></li>
+        </ul>
+    </div>
+
+    <!-- JavaScript for animations -->
+    <script>
+        gsap.from(".title", { duration: 1.5, y: -50, ease: "bounce" });
+        gsap.from(".menu li", {
+            duration: 1,
+            opacity: 0,
+            y: 20,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+
+        // Animate the hover effect with GSAP
+        document.querySelectorAll(".menu li").forEach(item => {
+            item.addEventListener("mouseenter", () => {
+                gsap.to(item, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+            });
+            item.addEventListener("mouseleave", () => {
+                gsap.to(item, { scale: 1, duration: 0.3, ease: "power2.out" });
+            });
+        });
+    </script>
+</body>
+</html>

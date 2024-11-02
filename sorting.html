@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sorting Algorithm Visualizer</h1>
+
+        <div class="controls">
+            <input type="text" id="array-input" placeholder="Enter numbers separated by commas">
+            <button onclick="generateArray()">Generate Array</button>
+            <button onclick="bubbleSort()">Bubble Sort</button>
+            <button onclick="selectionSort()">Selection Sort</button>
+            <button onclick="insertionSort()">Insertion Sort</button>
+        </div>
+
+        <div class="controls">
+            <label for="speed">Speed:</label>
+            <input type="range" id="speed" name="speed" min="1" max="1000" value="100" oninput="delay = 1000 - this.value;">
+        </div>
+
+        <div id="array-container"></div>
+
+        <!-- Algorithm Description -->
+        <div id="algorithm-description"></div>
+
+        <!-- Step Description -->
+        <div id="step-description"></div>
+
+        <!-- Step-by-Step Table -->
+        <table id="steps-table">
+            <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="steps-table-body"></tbody>
+        </table>
+
+        <!-- Sorted Solution -->
+        <div id="solution-container">
+            <h2>Sorted Elements</h2>
+            <div id="solution"></div>
+        </div>
+    </div>
+
+    <script src="js/sorting.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALGORITHM SIMULATION TOOL</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="jquery-ui-1.8.11.custom.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">ALGORITHM SIMULATION TOOL</h1>
+        <ul class="menu">
+            <li><a href="sorting.html">Sorting Algorithms</a></li>
+            <li><a href="pathfinding.html">Pathfinding Algorithms</a></li>
+            <li><a href="recursive-sorting.html">Recursive Sorting Algorithms</a></li>
+            <li><a href="n-queens.html">N-Queens Problem</a></li>
+            <li><a href="binearysearch.html">binary-search</a></li>
+            <li><a href="binary-search.html">Binary Search Tree</a></li>
+        </ul>
+    </div>
+
+    <!-- JavaScript for animations -->
+    <script>
+        gsap.from(".title", { duration: 1.5, y: -50, ease: "bounce" });
+        gsap.from(".menu li", {
+            duration: 1,
+            opacity: 0,
+            y: 20,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+
+        // Animate the hover effect with GSAP
+        document.querySelectorAll(".menu li").forEach(item => {
+            item.addEventListener("mouseenter", () => {
+                gsap.to(item, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+            });
+            item.addEventListener("mouseleave", () => {
+                gsap.to(item, { scale: 1, duration: 0.3, ease: "power2.out" });
+            });
+        });
+    </script>
+</body>
+</html>

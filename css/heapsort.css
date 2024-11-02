@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e0f7fa; /* Light blue background */
+    color: #333;
+}
+
+#canvas-container {
+    position: relative;
+    margin: 20px auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #ffffff; /* White background inside the canvas container */
+    width: 800px;
+    height: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+input[type="text"], button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, button:hover {
+    border-color: #1e88e5; /* Blue border on hover/focus */
+}
+
+button {
+    background-color: #00796b; /* Teal button background */
+    color: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #004d40; /* Darker teal on hover */
+    transform: translateY(-2px);
+}
+
+.node {
+    fill: #1e88e5; /* Blue for tree nodes */
+    stroke: #000;
+    stroke-width: 2;
+    transition: transform 0.3s;
+}
+
+.text {
+    fill: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-anchor: middle;
+    transition: fill 0.3s;
+}
+
+.highlight {
+    fill: #d32f2f; /* Red for highlighted nodes */
+}
+
+.sorted {
+    fill: #43a047; /* Green for sorted nodes */
+}
+
+#array-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.array-box {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000; /* Black outline for array boxes */
+    border-radius: 5px;
+    background-color: #1e88e5; /* Blue background for array boxes */
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.highlight-box {
+    background-color: #d32f2f; /* Red background for current highlighted box */
+}
+
+.sorted-box {
+    background-color: #43a047; /* Green background for sorted boxes */
+}
+
+#explanation {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#heap-selection {
+    margin-top: 20px;
+}

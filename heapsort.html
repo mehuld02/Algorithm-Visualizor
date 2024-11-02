@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heap Sort Visualizer</title>
+    <style>
+        body {
+            background-color: #b3e5fc;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #0d47a1;
+        }
+        #controls {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            background-color: #0288d1;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #01579b;
+        }
+        #arrayContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .arrayBox {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #0d47a1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #e1f5fe;
+            transition: background-color 0.5s;
+        }
+        .highlight {
+            background-color: #ff8a65 !important;
+        }
+        .sorted {
+            background-color: #81c784 !important;
+        }
+        canvas {
+            border: 1px solid #0d47a1;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Heap Sort Visualizer</h1>
+
+<div id="controls">
+    <button id="minHeapButton">Min Heap</button>
+    <button id="maxHeapButton">Max Heap</button>
+    <button id="randomizeArrayButton">Randomize Array</button>
+    <button id="heapSortButton">Heap Sort</button>
+</div>
+
+<div id="arrayContainer"></div>
+
+<canvas id="canvas" width="800" height="600"></canvas>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    let arrayData = [];
+    let currentHeapSize;
+    let isMinHeap = false;
+
+    // Helper function to delay for animation
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // Create array visualization
+    function createArrayVisualization() {
+        const arrayContainer = document.getElementById('arrayContainer');
+        arrayContainer.innerHTML = '';
+        arrayData.forEach((value, index) => {
+            const arrayBox = document.createElement('div');
+            arrayBox.classList.add('arrayBox');
+            arrayBox.innerText = value;
+            arrayBox.dataset.index = index;
+            arrayContainer.appendChild(arrayBox);
+        });
+    }
+
+    // Randomize the array
+    function randomizeArray() {
+        arrayData = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100));
+        createArrayVisualization();
+        drawHeapTree();
+    }
+
+    document.getElementById('randomizeArrayButton').addEventListener('click', randomizeArray);
+
+    // Swap with animation
+    async function swap(index1, index2) {
+        highlightElement(index1, 'highlight');
+        highlightElement(index2, 'highlight');
+        await delay(500); // Delay to visualize swap
+
+        const temp = arrayData[index1];
+        arrayData[index1] = arrayData[index2];
+        arrayData[index2] = temp;
+
+        createArrayVisualization();
+        drawHeapTree();
+
+        removeHighlight(index1, 'highlight');
+        removeHighlight(index2, 'highlight');
+        await delay(500);
+    }
+
+    // Highlight element during operation
+    function highlightElement(index, className) {
+        const element = document.querySelector(`.arrayBox[data-index='${index}']`);
+        if (element) element.classList.add(className);
+    }
+
+    // Remove highlight from element
+    function removeHighlight(index, className) {
+        const element = document.querySelector(`.arrayBox[data-index='${index}']`);
+        if (element) element.classList.remove(className);
+    }
+
+    // Push down logic with animation
+    async function pushDown(index) {
+        let swapIndex;
+        while (index * 2 + 1 < currentHeapSize) {
+            swapIndex = 2 * index + 1;
+            if (index * 2 + 2 < currentHeapSize) {
+                if (isMinHeap) {
+                    if (arrayData[swapIndex + 1] < arrayData[swapIndex]) {
+                        swapIndex = 2 * index + 2;
+                    }
+                } else {
+                    if (arrayData[swapIndex + 1] > arrayData[swapIndex]) {
+                        swapIndex = 2 * index + 2;
+                    }
+                }
+            }
+            if ((isMinHeap && arrayData[swapIndex] < arrayData[index]) ||
+                (!isMinHeap && arrayData[swapIndex] > arrayData[index])) {
+                await swap(swapIndex, index);
+                index = swapIndex;
+            } else {
+                return;
+            }
+        }
+    }
+
+    // Build the heap
+    async function buildHeap() {
+        currentHeapSize = arrayData.length;
+        for (let i = Math.floor(currentHeapSize / 2); i >= 0; i--) {
+            await pushDown(i);
+        }
+    }
+
+    // Heap sort with animation
+    async function heapSort() {
+        await buildHeap();
+        for (let i = arrayData.length - 1; i > 0; i--) {
+            await swap(0, i);
+            currentHeapSize--;
+            await pushDown(0);
+        }
+        arrayData.forEach((_, index) => highlightElement(index, 'sorted'));
+    }
+
+    // Draw the heap tree
+    function drawHeapTree() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const nodeRadius = 20;
+        const nodeDistanceX = 80;
+        const nodeDistanceY = 60;
+
+        function drawNode(value, x, y, color) {
+            ctx.beginPath();
+            ctx.arc(x, y, nodeRadius, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.strokeStyle = "#0d47a1";
+            ctx.stroke();
+            ctx.fillStyle = "black";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(value, x, y);
+        }
+
+        function drawTree(index, x, y, level) {
+            if (index >= arrayData.length) return;
+            const leftChild = 2 * index + 1;
+            const rightChild = 2 * index + 2;
+            const offsetX = nodeDistanceX / (level + 1);
+            const color = "#64b5f6"; // Default node color
+
+            if (leftChild < arrayData.length) {
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x - offsetX, y + nodeDistanceY);
+                ctx.stroke();
+                drawTree(leftChild, x - offsetX, y + nodeDistanceY, level + 1);
+            }
+            if (rightChild < arrayData.length) {
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + offsetX, y + nodeDistanceY);
+                ctx.stroke();
+                drawTree(rightChild, x + offsetX, y + nodeDistanceY, level + 1);
+            }
+            drawNode(arrayData[index], x, y, color);
+        }
+
+        const rootX = canvas.width / 2;
+        const rootY = 50;
+        drawTree(0, rootX, rootY, 0);
+    }
+
+    document.getElementById('minHeapButton').addEventListener('click', () => {
+        isMinHeap = true;
+        buildHeap();
+    });
+
+    document.getElementById('maxHeapButton').addEventListener('click', () => {
+        isMinHeap = false;
+        buildHeap();
+    });
+
+    document.getElementById('heapSortButton').addEventListener('click', heapSort);
+
+    randomizeArray();
+</script>
+
+</body>
+</html>

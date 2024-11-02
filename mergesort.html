@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort Visualization</title>
+    <link rel="stylesheet" href="css/mergesort.css">
+    <link rel="stylesheet" href="css/bst.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Merge Sort Visualization</h1>
+        <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas">
+        <button onclick="startMergeSort()">Sort Array</button>
+        <h2 id="result"></h2>
+        <div id="visualization"></div>
+        <button id="nextButton" onclick="nextStep()" style="display: none;">Next Step</button>
+    </div>
+    <script src="js/merge.js"></script>
+</body>
+</html>

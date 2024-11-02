@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-Queens Problem</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>N-Queens Problem</h1>
+        <input type="number" id="n-queens-size" placeholder="Enter N (1-20)" min="1" max="20">
+        <button onclick="solveNQueens()">Solve N-Queens</button>
+        <div id="n-queens-board" class="board"></div>
+        <div id="steps-container">
+            <h2>Steps Taken:</h2>
+            <div id="steps"></div>
+        </div>
+    </div>
+    <script src="js/n-queens.js"></script>
+</body>
+</html>
